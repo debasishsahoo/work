@@ -17,14 +17,9 @@ const Navbar = () => {
 
   const navItems = [
     { path: "/", label: "Home" },
-    {
-      label: "About",
-      dropdown: [
-        { path: "/about", label: "About Us" },
-        { path: "/amenities", label: "Amenities" },
-        { path: "/contact", label: "Contact" },
-      ],
-    },
+
+    { path: "/about", label: "About" },
+
     {
       label: "Labs",
       dropdown: [
@@ -33,20 +28,20 @@ const Navbar = () => {
       ],
     },
     {
-      path: "/courses",
-      label: "Courses",
-    },
-    {
-      path: "/startups",
-      label: "Startups",
-    },
-    {
-      label: "Community",
+      label: "Incubation",
       dropdown: [
-        { path: "/blogs", label: "Blogs" },
+        { path: "/amenities", label: "Amenities" },
+        { path: "/startups", label: "Startups" },
         { path: "/coworking-space", label: "Coworking Space" },
       ],
     },
+    {
+      path: "/courses",
+      label: "Courses",
+    },
+
+    { path: "/blogs", label: "Blogs" },
+    { apth: "/contact", label: "Contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -55,7 +50,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-kipm-navy sticky top-0 z-50 shadow-lg h-[8svh]">
+    <nav className="bg-kipm-navy sticky top-0 z-40 shadow-lg h-[8svh]">
       <div className="px-2 py-2 md:px-6 lg:px-8">
         <div className="flex justify-between lg:justify-around">
           <div className="flex items-center">
@@ -68,7 +63,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-4">
             {navItems.map((item, idx) =>
               item.dropdown ? (
-                <div key={idx} className="relative group flex items-center">
+                <div key={`${item.path} - ${idx}`} className="relative group flex items-center">
                   <div
                     className={`px-1 py-2 text-sm font-medium font-mokoto cursor-pointer transition-colors duration-200 ${
                       isDropdownActive(item.dropdown)
@@ -100,7 +95,7 @@ const Navbar = () => {
                 </div>
               ) : (
                 <Link
-                  key={item.path}
+                  key={`${item.path} - ${idx}`}
                   to={item.path}
                   className={`px-3 py-2 text-sm font-medium font-mokoto transition-colors duration-200 ${
                     isActive(item.path)
@@ -137,11 +132,11 @@ const Navbar = () => {
             }`}
           >
             <div className="px-2 pt-2 pb-3 space-y-2 border-t border-gray-600">
-              {navItems.map((item) =>
+              {navItems.map((item, index) =>
                 item.dropdown ? (
                   item.dropdown.map((subItem) => (
                     <Link
-                      key={subItem.path}
+                      key={`${subItem.path} - ${index}`}
                       to={subItem.path}
                       onClick={() => setIsOpen(false)}
                       className={`block px-4 py-2 text-xl font-medium font-mokoto transition-colors duration-200 ${

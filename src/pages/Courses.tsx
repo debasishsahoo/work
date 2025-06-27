@@ -14,6 +14,22 @@ import Footer from "../components/Footer";
 import CourseCard from "../components/CourseCard";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
+import EnrollCourse from "@/components/Modals/EnrollCourse";
+
+interface Course {
+  title: string;
+  description: string;
+  category: string;
+  duration: string;
+  level: "Beginner" | "Intermediate" | "Advanced";
+  price: number;
+  instructor: string;
+  rating: number;
+  studentsEnrolled: number;
+  startDate: string;
+  image?: string;
+  features: string[];
+}
 
 const Courses = () => {
   useEffect(() => {
@@ -24,6 +40,8 @@ const Courses = () => {
   const [selectedLevel, setSelectedLevel] = useState("All");
   const [selectedDuration, setSelectedDuration] = useState("All");
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
 
   const categories = [
     "All",
@@ -266,8 +284,14 @@ const Courses = () => {
     },
   ];
 
+  const handleEnroll = (course: Course) => {
+    setIsOpen(true);
+    setSelectedCourse(course);
+  }
+
   return (
     <div className="min-h-screen bg-kipm-white">
+      {isOpen && <EnrollCourse isOpen={isOpen} onClose={()=> setIsOpen(false)} course={selectedCourse} />}
       <Navbar />
 
       {/* Hero Section */}
@@ -387,7 +411,7 @@ const Courses = () => {
           {filteredCourses.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredCourses.map((course, index) => (
-                <CourseCard key={index} {...course} />
+                <CourseCard key={index} {...course} onEnroll={handleEnroll}  />
               ))}
             </div>
           ) : (

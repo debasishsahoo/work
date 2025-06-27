@@ -1,6 +1,6 @@
 import { Clock, Users, Calendar, Star, ArrowRight } from "lucide-react";
 
-interface CourseCardProps {
+interface Course {
   title: string;
   description: string;
   category: string;
@@ -13,6 +13,9 @@ interface CourseCardProps {
   startDate: string;
   image?: string;
   features: string[];
+}
+interface CourseCardProps extends Course {
+  onEnroll: (course: Course) => void;
 }
 
 const CourseCard = ({
@@ -28,6 +31,7 @@ const CourseCard = ({
   startDate,
   image,
   features,
+  onEnroll,
 }: CourseCardProps) => {
   const getLevelColor = (level: string) => {
     switch (level) {
@@ -128,7 +132,25 @@ const CourseCard = ({
               Starts {startDate}
             </div>
           </div>
-          <button className="bg-kipm-crimson hover:bg-red-600 text-white px-6 py-2 rounded-lg font-semibold text-sm transition-all duration-200 flex items-center group">
+          <button
+            onClick={() =>
+              onEnroll({
+                title,
+                description,
+                category,
+                duration,
+                level,
+                price,
+                instructor,
+                rating,
+                studentsEnrolled,
+                startDate,
+                image,
+                features,
+              })
+            }
+            className="bg-kipm-crimson hover:bg-red-600 text-white px-6 py-2 rounded-lg font-semibold text-sm transition-all duration-200 flex items-center group"
+          >
             Enroll Now
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </button>
