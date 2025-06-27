@@ -1,3 +1,5 @@
+import LogoImg from "/kipm-logo.svg";
+
 interface LogoProps {
   className?: string;
   showText?: boolean;
@@ -17,15 +19,14 @@ const Logo = ({
   };
 
   return (
-    <div className={`flex items-center space-x-3 ${className}`}>
+    <div className={`flex items-start justify-center flex-col gap-2 ${className}`}>
       {/* KIPM Logo */}
-      <div className="h-12 w-auto flex-shrink-0">
         <img
-          src="/kipm-logo-simple.svg"
+          src={LogoImg}
           alt="KIPM Innovators Foundation Logo"
-          className="h-full w-full object-contain"
+          className="h-[10vh] w-auto object-contain"
         />
-      </div>
+
       {showText && (
         <div
           className={`text-kipm-white ${textSizeClasses[textSize]} font-bold font-mokoto tracking-wide`}

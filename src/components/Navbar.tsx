@@ -50,20 +50,21 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-kipm-navy sticky top-0 z-40 shadow-lg h-[8svh]">
-      <div className="px-2 py-2 md:px-6 lg:px-8">
-        <div className="flex justify-between lg:justify-around">
-          <div className="flex items-center">
-            <Link to="/">
-              <Logo />
-            </Link>
-          </div>
+    <nav className="bg-kipm-navy sticky top-0 z-40 shadow-lg h-[12svh]">
+      <div className="px-2 md:px-6 lg:px-8">
+        <div className="flex justify-between lg:justify-around items-center">
+          <Link to="/">
+            <Logo />
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-4">
             {navItems.map((item, idx) =>
               item.dropdown ? (
-                <div key={`${item.path} - ${idx}`} className="relative group flex items-center">
+                <div
+                  key={`${item.path} - ${idx}`}
+                  className="relative group flex items-center"
+                >
                   <div
                     className={`px-1 py-2 text-sm font-medium font-mokoto cursor-pointer transition-colors duration-200 ${
                       isDropdownActive(item.dropdown)

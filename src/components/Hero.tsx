@@ -2,12 +2,16 @@ import { ArrowRight, Lightbulb, Users, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
+import Logo from "./Logo";
 
 const Hero = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
   return (
     <>
-      <section ref={ref} className="bg-gradient-to-br from-kipm-navy via-kipm-navy to-blue-900 text-kipm-white py-10 md:py-15 lg:py-20 min-h-[92svh]">
+      <section
+        ref={ref}
+        className="bg-gradient-to-br from-kipm-navy via-kipm-navy to-blue-900 text-kipm-white py-10 md:py-15 lg:py-20 min-h-[92svh]"
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
@@ -47,7 +51,12 @@ const Hero = () => {
               <div className="grid grid-cols-3 gap-8 pt-8">
                 <div className="text-center">
                   <div className="text-3xl lg:text-4xl font-bold text-kipm-orange">
-                   {inView ? <CountUp end={50} duration={2.5} separator="," /> : 0}+
+                    {inView ? (
+                      <CountUp end={50} duration={2.5} separator="," />
+                    ) : (
+                      0
+                    )}
+                    +
                   </div>
                   <div className="text-sm lg:text-base text-gray-300">
                     Startups Incubated
@@ -55,7 +64,12 @@ const Hero = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl lg:text-4xl font-bold text-kipm-yellow">
-                    {inView ? <CountUp end={1000} duration={2.5} separator="," /> : 0}+
+                    {inView ? (
+                      <CountUp end={1000} duration={2.5} separator="," />
+                    ) : (
+                      0
+                    )}
+                    +
                   </div>
                   <div className="text-sm lg:text-base text-gray-300">
                     Students Trained
@@ -63,7 +77,12 @@ const Hero = () => {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl lg:text-4xl font-bold text-kipm-crimson">
-                    {inView ? <CountUp end={25} duration={2.5} separator="," /> : 0}+
+                    {inView ? (
+                      <CountUp end={25} duration={2.5} separator="," />
+                    ) : (
+                      0
+                    )}
+                    +
                   </div>
                   <div className="text-sm lg:text-base text-gray-300">
                     Success Stories
@@ -77,14 +96,10 @@ const Hero = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
                 <div className="space-y-6">
                   <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-2xl border border-white border-opacity-20 hover:transform hover:scale-105 transition-all duration-300 flex flex-col items-center">
-                    <Lightbulb className="h-12 w-12 text-kipm-yellow mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">
-                      Innovation Lab
+                    <Logo/>
+                    <h3 className="text-lg font-semibold mb-2 uppercase">
+                      KIPM Innovators Foundation
                     </h3>
-                    <p className="text-gray-300 text-sm">
-                      State-of-the-art facilities for rapid prototyping and
-                      development
-                    </p>
                   </div>
                   <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-2xl border border-white border-opacity-20 hover:transform hover:scale-105 transition-all duration-300 flex flex-col items-center">
                     <Users className="h-12 w-12 text-kipm-orange mb-4" />
@@ -97,6 +112,16 @@ const Hero = () => {
                   </div>
                 </div>
                 <div className="space-y-6 md:mt-12">
+                  <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-2xl border border-white border-opacity-20 hover:transform hover:scale-105 transition-all duration-300 flex flex-col items-center">
+                     <Lightbulb className="h-12 w-12 text-kipm-yellow mb-4" />
+                    <h3 className="text-lg font-semibold mb-2">
+                      Innovation Lab
+                    </h3>
+                    <p className="text-gray-300 text-sm">
+                      State-of-the-art facilities for rapid prototyping and
+                      development
+                    </p>
+                  </div>
                   <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-2xl border border-white border-opacity-20 hover:transform hover:scale-105 transition-all duration-300 flex flex-col items-center">
                     <Rocket className="h-12 w-12 text-kipm-crimson mb-4" />
                     <h3 className="text-lg font-semibold mb-2">

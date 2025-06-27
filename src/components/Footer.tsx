@@ -19,7 +19,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="flex-1 min-w-[250px]">
             <div className="mb-4">
-              <Logo />
+              <Logo showText={true}/>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
               Empowering innovation and entrepreneurship through cutting-edge
