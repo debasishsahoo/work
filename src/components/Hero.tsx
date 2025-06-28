@@ -96,7 +96,7 @@ const Hero = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
                 <div className="space-y-6">
                   <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-2xl border border-white border-opacity-20 hover:transform hover:scale-105 transition-all duration-300 flex flex-col items-center">
-                    <Logo/>
+                    <Logo />
                     <h3 className="text-lg font-semibold mb-2 uppercase">
                       KIPM Innovators Foundation
                     </h3>
@@ -113,7 +113,7 @@ const Hero = () => {
                 </div>
                 <div className="space-y-6 md:mt-12">
                   <div className="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-2xl border border-white border-opacity-20 hover:transform hover:scale-105 transition-all duration-300 flex flex-col items-center">
-                     <Lightbulb className="h-12 w-12 text-kipm-yellow mb-4" />
+                    <Lightbulb className="h-12 w-12 text-kipm-yellow mb-4" />
                     <h3 className="text-lg font-semibold mb-2">
                       Innovation Lab
                     </h3>
