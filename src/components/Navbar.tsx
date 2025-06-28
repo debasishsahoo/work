@@ -41,7 +41,7 @@ const Navbar = () => {
     },
 
     { path: "/blogs", label: "Blogs" },
-    { apth: "/contact", label: "Contact" },
+    { path: "/contact", label: "Contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
