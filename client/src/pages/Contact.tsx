@@ -38,7 +38,7 @@ const Contact = () => {
     }));
   };
 
-const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
@@ -48,9 +48,16 @@ const handleSubmit = async (e: React.FormEvent) => {
         formData.email,
         formData.phone,
         formData.message || "No message provided",
-        formData.subject
+        formData.subject,
       );
       alert("Contact Request sent! Admin will get to you soon.");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
     } catch (error) {
       console.error("Contact error:", error);
       alert("Something went wrong. Please try again.");
@@ -262,17 +269,17 @@ const handleSubmit = async (e: React.FormEvent) => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kipm-orange focus:border-transparent"
-                    placeholder="Enter the subject"
-                  />
+                      Subject *
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-kipm-orange focus:border-transparent"
+                      placeholder="Enter the subject"
+                    />
                   </div>
                 </div>
 
@@ -292,12 +299,14 @@ const handleSubmit = async (e: React.FormEvent) => {
                 </div>
 
                 <button
-                disabled={loading}
+                  disabled={loading}
                   type="submit"
-                  className={`${loading? "bg-gray-400 hover:bg-grau-600 cursor-not-allowed" : "bg-kipm-orange hover:bg-yellow-500 cursor-pointer"} w-full text-white py-4 rounded-lg font-semibold text-lg transition-all duration-200 flex items-center justify-center group`}
+                  className={`${loading ? "bg-gray-400 hover:bg-grau-600 cursor-not-allowed" : "bg-kipm-orange hover:bg-yellow-500 cursor-pointer"} w-full text-white py-4 rounded-lg font-semibold text-lg transition-all duration-200 flex items-center justify-center group`}
                 >
-                  {loading? "Sending.." : "Send Message"}
-                  <Send className={` ${loading? "hidden" :"block"} ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform`}/>
+                  {loading ? "Sending.." : "Send Message"}
+                  <Send
+                    className={` ${loading ? "hidden" : "block"} ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform`}
+                  />
                 </button>
               </form>
             </div>
