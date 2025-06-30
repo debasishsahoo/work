@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        mokoto: ["Mokoto", "sans-serif"],
+        mokoto: ["mokoto", "sans-serif"],
         sans: ["Mokoto", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       colors: {

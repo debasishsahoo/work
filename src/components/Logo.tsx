@@ -24,7 +24,7 @@ const Logo = ({
         <img
           src={LogoImg}
           alt="KIPM Innovators Foundation Logo"
-          className="h-[10vh] w-auto object-contain"
+          className="h-[12vh] w-auto object-contain"
         />
 
       {showText && (

@@ -50,7 +50,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-kipm-navy sticky top-0 z-40 shadow-lg h-[12svh]">
+    <nav className="bg-kipm-navy sticky top-0 z-40 shadow-lg h-[15svh]">
       <div className="px-2 md:px-6 lg:px-8">
         <div className="flex justify-between lg:justify-around items-center">
           <Link to="/">
@@ -63,10 +63,10 @@ const Navbar = () => {
               item.dropdown ? (
                 <div
                   key={`${item.path} - ${idx}`}
-                  className="relative group flex items-center"
+                  className="relative group flex items-center text-lg"
                 >
                   <div
-                    className={`px-1 py-2 text-sm font-medium font-mokoto cursor-pointer transition-colors duration-200 ${
+                    className={`px-1 py-2  font-medium font-mokoto cursor-pointer transition-colors duration-200 ${
                       isDropdownActive(item.dropdown)
                         ? "text-kipm-orange border-b-2 border-kipm-orange"
                         : "text-kipm-white hover:text-kipm-yellow"
@@ -77,7 +77,7 @@ const Navbar = () => {
                   <ChevronDown className="h-[12px] text-kipm-white cursor-pointer group-hover:text-kipm-yellow" />
 
                   {/* Dropdown */}
-                  <div className="absolute left-0 top-full hidden group-hover:flex flex-col bg-kipm-white/80 text-kipm-navy  shadow-lg border border-kipm-white min-w-[180px] z-10">
+                  <div className="absolute left-0 top-full text-lg hidden group-hover:flex flex-col bg-kipm-white/80 text-kipm-navy  shadow-lg border border-kipm-white min-w-[180px] z-10">
                     {item.dropdown.map((subItem) => (
                       <Link
                         key={subItem.path}
@@ -98,7 +98,7 @@ const Navbar = () => {
                 <Link
                   key={`${item.path} - ${idx}`}
                   to={item.path}
-                  className={`px-3 py-2 text-sm font-medium font-mokoto transition-colors duration-200 ${
+                  className={`px-3 py-2 text-lg font-medium font-mokoto transition-colors duration-200 ${
                     isActive(item.path)
                       ? "text-kipm-orange border-b-2 border-kipm-orange"
                       : "text-kipm-white hover:text-kipm-yellow"
@@ -114,7 +114,7 @@ const Navbar = () => {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-kipm-white hover:text-kipm-yellow"
+              className="text-kipm-white hover:text-kipm-yellow mt-4 bg-kipm-white/30 p-2 rounded-xl"
             >
               {isOpen ? (
                 <X className="h-6 w-6" />
