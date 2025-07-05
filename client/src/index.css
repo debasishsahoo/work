@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Mokoto';
-  src: url('/fonts/Mokoto Demo.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 @layer base {
   :root {
     /* KIPM Brand Colors */
