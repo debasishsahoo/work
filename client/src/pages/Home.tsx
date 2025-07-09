@@ -5,8 +5,6 @@ import {
   Cpu,
   Wrench,
   Users,
-  BookOpen,
-  MessageSquare,
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -14,9 +12,28 @@ import Hero from "../components/Hero";
 import StartupCard from "../components/StartupCard";
 import FacilityCard from "../components/FacilityCard";
 import CourseCard from "../components/CourseCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import EnrollCourse from "@/components/Modals/EnrollCourse";
+
+interface Course {
+  title: string;
+  description: string;
+  category: string;
+  duration: string;
+  level: "Beginner" | "Intermediate" | "Advanced";
+  price: number;
+  instructor: string;
+  rating: number;
+  studentsEnrolled: number;
+  startDate: string;
+  image?: string;
+  features: string[];
+}
+
 
 const Home = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedCourse, setSelectedCourse] = useState(null);
 
   useEffect(()=> {
     window.scrollTo(0,0);
@@ -129,8 +146,14 @@ const Home = () => {
     },
   ];
 
+    const handleEnroll = (course: Course) => {
+    setIsOpen(true);
+    setSelectedCourse(course);
+  }
+
   return (
     <div className="min-h-screen bg-kipm-white">
+      {isOpen && <EnrollCourse isOpen={isOpen} onClose={()=> setIsOpen(false)} course={selectedCourse} />}
       <Navbar />
       <Hero />
 
@@ -251,7 +274,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             {featuredCourses.map((course, index) => (
-              <CourseCard key={index} {...course} />
+              <CourseCard key={index} {...course} onEnroll={handleEnroll} />
             ))}
           </div>
 

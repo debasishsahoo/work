@@ -31,7 +31,7 @@ const CourseCard = ({
   startDate,
   image,
   features,
-  onEnroll,
+  onEnroll
 }: CourseCardProps) => {
   const getLevelColor = (level: string) => {
     switch (level) {
